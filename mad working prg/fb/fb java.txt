@@ -1,0 +1,43 @@
+package com.example.fb;
+import androidx.appcompat.app.AppCompatActivity;
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toast;
+public class MainActivity extends Activity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+// Find the ImageView elements by their IDs
+        ImageView facebookView = findViewById(R.id.facebookView);
+        ImageView likeImageView = findViewById(R.id.likeImageView);
+        ImageView commentImageView = findViewById(R.id.commentImageView);
+        ImageView shareImageView = findViewById(R.id.shareImageView);
+// Set click listeners for the ImageViews
+        likeImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showToast("You clicked the Like button");
+            }
+        });
+        commentImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showToast("You clicked the Comment button");
+            }
+        });
+        shareImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showToast("You clicked the Share button");
+            }
+        });
+    }
+
+    // Helper method to display a toast message
+    private void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+}
